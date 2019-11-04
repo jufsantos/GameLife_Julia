@@ -33,6 +33,45 @@ class GameViewController: UIViewController {
 
         // configure the view
          scnView.backgroundColor = UIColor.white
+        
+        func handleTap(_ gestureRecognize: UIGestureRecognizer) {
+            // retrieve the SCNView
+            let scnView = self.view as! SCNView
+            
+            // check what nodes are tapped
+            let p = gestureRecognize.location(in: scnView)
+            let hitResults = scnView.hitTest(p, options: [:])
+            // check that we clicked on at least one object
+            if hitResults.count > 0 {
+                // retrieved the first clicked object
+                let result = hitResults[0]
+                
+                // get its material
+                let material = result.node.geometry!.firstMaterial!
+                
+                
+                
+                // highlight it
+                SCNTransaction.begin()
+                SCNTransaction.animationDuration = 0.5
+                
+                // on completion - unhighlight
+                SCNTransaction.completionBlock = {
+                    SCNTransaction.begin()
+                    SCNTransaction.animationDuration = 0.5
+                    
+                    material.emission.contents = UIColor.black
+                    
+                    SCNTransaction.commit()
+                }
+                
+                material.emission.contents = UIColor.red
+                
+                SCNTransaction.commit()
+                
+                
+            }
+        }
 
     }
 }
