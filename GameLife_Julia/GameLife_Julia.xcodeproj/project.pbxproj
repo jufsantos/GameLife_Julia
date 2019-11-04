@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		755920BA23708EE40093FC50 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755920B923708EE40093FC50 /* Grid.swift */; };
+		755920BC2370C1A90093FC50 /* CubeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755920BB2370C1A90093FC50 /* CubeCell.swift */; };
 		75E6B04A236B774700F70A00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E6B049236B774700F70A00 /* AppDelegate.swift */; };
 		75E6B04C236B774700F70A00 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 75E6B04B236B774700F70A00 /* art.scnassets */; };
 		75E6B04E236B774700F70A00 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E6B04D236B774700F70A00 /* GameViewController.swift */; };
@@ -16,11 +17,11 @@
 		75E6B056236B774B00F70A00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75E6B054236B774B00F70A00 /* LaunchScreen.storyboard */; };
 		75E6B060236B7E9100F70A00 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E6B05F236B7E9100F70A00 /* GameScene.swift */; };
 		75E6B062236C9CA100F70A00 /* RulesGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E6B061236C9CA100F70A00 /* RulesGame.swift */; };
-		75E6B086236CCFEC00F70A00 /* CubeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E6B085236CCFEC00F70A00 /* CubeCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		755920B923708EE40093FC50 /* Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
+		755920BB2370C1A90093FC50 /* CubeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeCell.swift; sourceTree = "<group>"; };
 		75E6B046236B774700F70A00 /* GameLife_Julia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameLife_Julia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75E6B049236B774700F70A00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75E6B04B236B774700F70A00 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -31,7 +32,6 @@
 		75E6B057236B774B00F70A00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75E6B05F236B7E9100F70A00 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GameScene.swift; path = ../GameScene.swift; sourceTree = "<group>"; };
 		75E6B061236C9CA100F70A00 /* RulesGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesGame.swift; sourceTree = "<group>"; };
-		75E6B085236CCFEC00F70A00 /* CubeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,10 +67,10 @@
 				75E6B049236B774700F70A00 /* AppDelegate.swift */,
 				75E6B04B236B774700F70A00 /* art.scnassets */,
 				75E6B04D236B774700F70A00 /* GameViewController.swift */,
+				755920BB2370C1A90093FC50 /* CubeCell.swift */,
 				755920B923708EE40093FC50 /* Grid.swift */,
-				75E6B05F236B7E9100F70A00 /* GameScene.swift */,
-				75E6B085236CCFEC00F70A00 /* CubeCell.swift */,
 				75E6B061236C9CA100F70A00 /* RulesGame.swift */,
+				75E6B05F236B7E9100F70A00 /* GameScene.swift */,
 				75E6B052236B774B00F70A00 /* Assets.xcassets */,
 				75E6B04F236B774700F70A00 /* Main.storyboard */,
 				75E6B054236B774B00F70A00 /* LaunchScreen.storyboard */,
@@ -151,11 +151,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				755920BC2370C1A90093FC50 /* CubeCell.swift in Sources */,
 				75E6B060236B7E9100F70A00 /* GameScene.swift in Sources */,
 				75E6B04E236B774700F70A00 /* GameViewController.swift in Sources */,
 				75E6B04A236B774700F70A00 /* AppDelegate.swift in Sources */,
 				75E6B062236C9CA100F70A00 /* RulesGame.swift in Sources */,
-				75E6B086236CCFEC00F70A00 /* CubeCell.swift in Sources */,
 				755920BA23708EE40093FC50 /* Grid.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

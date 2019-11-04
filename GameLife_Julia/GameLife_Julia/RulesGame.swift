@@ -10,18 +10,29 @@ import SceneKit
 
 class RulesGame: SCNNode {
     
+    var callCell: [[CubeCell]] = []
+    
     override init() {
     super.init()
-        
-        let box = SCNBox(width: 0.8, height: 0.8,
-        length: 0.1, chamferRadius: 0.005)
-        box.firstMaterial?.diffuse.contents = UIColor.systemRed
-        let boxnode = SCNNode(geometry: box)
-        boxnode.position.z = 10
-        boxnode.position.x = Float(UIScreen.main.bounds.width/2)
-        boxnode.position.y = Float(UIScreen.main.bounds.height/2)
-        
 }
+    func step (grid: Grid){
+        
+        for row in callCell {
+            for cell in row {
+                if cell.isAlive == 0 {
+                    let count = grid.getLiveNeighbours(cell: cell) - 1
+                    if count == 3 {
+                        cell.isAlive = 1
+                    }
+                } else {
+                    let count = grid.getLiveNeighbours(cell: cell)
+                    if count < 2 && count > 3 {
+                        cell.isAlive = 0
+                    }
+                }
+            }
+        }
+    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

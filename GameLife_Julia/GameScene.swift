@@ -65,7 +65,7 @@ public class GameScene: SCNScene {
         
         let primeiraLinha = grid.matrix[0]
         let cols = primeiraLinha.count
-        
+                
         for i in 0..<rows{
             var str: String = ""
             for j in 0..<cols{
