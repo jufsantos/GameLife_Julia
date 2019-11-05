@@ -11,8 +11,8 @@ import UIKit
 class Grid {
     
     var matrix: [[CubeCell]] = []
-    let nRow = 15
-    let nCols = 10
+    let nRow = 10
+    let nCols = 15
 
            
     
@@ -42,8 +42,7 @@ class Grid {
         var count = 0
         for m in -1...1{
             for n in -1...1{
-                if let cell = getCell(x: m, y: n) {
-//                    if m == 0 && n == 0 { continue }
+                if let cell = getCell(x: cell.x + m, y: cell.y + n) {
                     if cell.isAlive == 1 {
                         count += 1
                     }

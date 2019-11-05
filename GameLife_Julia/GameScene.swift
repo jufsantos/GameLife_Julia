@@ -11,73 +11,63 @@ import SceneKit
 
 public class GameScene: SCNScene {
     
-    //    override init() {
-    //        super.init()
-    //
-    //        let aliveCell: Bool = false
-    //        let deadColor = UIColor.systemGray5
-    //        let aliveColor = UIColor.systemRed
-    //
-    //        let geometry = SCNBox(width: 0.6 , height: 0.6,
-    //                               length: 0.1, chamferRadius: 0.005)
-    //
-    //        geometry.firstMaterial?.diffuse.contents = deadColor
-    //
-    //        if aliveCell == true{
-    //            geometry.firstMaterial?.diffuse.contents = aliveColor
-    //        }else{
-    //            aliveCell == false
-    //        }
-    //
-    //        let gridNode = SCNNode(geometry: geometry)
-    //        let offset: Int = 16
-    //        gridNode.position.z = 0
-    //
-    //
-    //        let x = Int(UIScreen.main.bounds.width/10)
-    //        let y = Int(UIScreen.main.bounds.height/10)
-    //
-    //        for xIndex:Int in 0...x {
-    //            for yIndex:Int in 0...y {
-    //                let boxCopy = gridNode.copy() as! SCNNode
-    //                boxCopy.position.x = Float(xIndex - offset)
-    //                boxCopy.position.y = Float(yIndex - offset)
-    //                self.rootNode.addChildNode(boxCopy)
-    //
-    //
-    //
-    //            }
-    //        }
-    //    }
+    var grid = Grid()
+    let rulesGame = RulesGame()
+    let deadColor = UIColor.systemGray5
+    let aliveColor = UIColor.systemRed
+    let offset: Int = 40
+    var nodes: [SCNNode] = []
     
     override init(){
         super.init()
-        
-        let grid = Grid()
-        
+
         grid.matrix[1][3].isAlive = 1
         grid.matrix[2][2].isAlive = 1
         grid.matrix[2][3].isAlive = 1
         grid.matrix[3][3].isAlive = 1
         grid.matrix[3][4].isAlive = 1
         
-        let rows = grid.matrix.count
+        drawGrid()
+
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    func drawGrid(){
         
+        let rows = grid.matrix.count
         let primeiraLinha = grid.matrix[0]
         let cols = primeiraLinha.count
-                
-        for i in 0..<rows{
+        
+        for i in 0..<rows {
             var str: String = ""
             for j in 0..<cols{
                 str.append("\(grid.matrix[i][j].isAlive)")
+                let boxGeometry = SCNBox(width: 0.8 , height: 0.8, length: 0.8, chamferRadius: 0.005)
+                let boxCopy = SCNNode(geometry: boxGeometry)
+                if grid.matrix[i][j].isAlive == 1{
+                    boxCopy.geometry?.firstMaterial?.diffuse.contents = aliveColor
+                }else{
+                    boxCopy.geometry?.firstMaterial?.diffuse.contents = deadColor
+                }
+                boxCopy.position.x = Float(i - offset)
+                boxCopy.position.y = Float(j - offset)
+                nodes.append(boxCopy)
+                self.rootNode.addChildNode(boxCopy)
             }
             print(str)
         }
-        
     }
     
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+    func touchedScreen(){
+        for i in 0..<nodes.count{
+            nodes[i].removeFromParentNode()
+        }
+        nodes = []
+        grid = rulesGame.step(grid: grid)
+        drawGrid()
+        
     }
 }
