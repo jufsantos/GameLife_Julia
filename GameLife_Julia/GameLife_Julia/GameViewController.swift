@@ -19,27 +19,21 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        // create and add a camera to the scene
-//        let cameraNode = SCNNode()
-//        cameraNode.camera = SCNCamera()
-//        scene.rootNode.addChildNode(cameraNode)
+        
 //
-//        // place the camera
-//        cameraNode.position = SCNVector3(x: 0, y: 0, z: 8)
-//
-//        // create and add a light to the scene
-//        let lightNode = SCNNode()
-//        lightNode.light = SCNLight()
-//        lightNode.light!.type = .omni
-//        lightNode.position = SCNVector3(x: 0, y: 10, z: 10)
-//        scene.rootNode.addChildNode(lightNode)
-//
-//        // create and add an ambient light to the scene
-//        let ambientLightNode = SCNNode()
-//        ambientLightNode.light = SCNLight()
-//        ambientLightNode.light!.type = .ambient
-//        ambientLightNode.light!.color = UIColor.darkGray
-//        scene.rootNode.addChildNode(ambientLightNode)
+        // create and add a light to the scene
+        let lightNode = SCNNode()
+        lightNode.light = SCNLight()
+        lightNode.light!.type = .omni
+        lightNode.position = SCNVector3(x: 0, y: 10, z: 10)
+        scene.rootNode.addChildNode(lightNode)
+
+        // create and add an ambient light to the scene
+        let ambientLightNode = SCNNode()
+        ambientLightNode.light = SCNLight()
+        ambientLightNode.light!.type = .ambient
+        ambientLightNode.light!.color = UIColor.darkGray
+        scene.rootNode.addChildNode(ambientLightNode)
 //
 ////        // retrieve the ship node
 ////        let ship = scene.rootNode.childNode(withName: "ship", recursively: true)!
@@ -52,7 +46,7 @@ class GameViewController: UIViewController {
 
         // set the scene to the view
         scnView.scene = scene
-        scnView.pointOfView?.position = SCNVector3Make(0, 0, 100)
+        scnView.pointOfView?.position = SCNVector3Make(0, 0, 0)
 
         // allows the user to manipulate the camera
         scnView.allowsCameraControl = true
@@ -61,7 +55,16 @@ class GameViewController: UIViewController {
         scnView.showsStatistics = true
 
         // configure the view
-         scnView.backgroundColor = UIColor.white
+         scnView.backgroundColor = UIColor.black
+        
+        // create and add a camera to the scene
+        let cameraNode = SCNNode()
+        cameraNode.camera = SCNCamera()
+        scene.rootNode.addChildNode(cameraNode)
+
+        // place the camera
+        cameraNode.position = SCNVector3(x: 0, y: -20, z: 3)
+        cameraNode.look(at: SCNVector3 (0, 0, 0))
         
         func handleTap(_ gestureRecognize: UIGestureRecognizer) {
             // retrieve the SCNView

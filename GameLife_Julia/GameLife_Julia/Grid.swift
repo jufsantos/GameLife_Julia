@@ -11,8 +11,8 @@ import UIKit
 class Grid {
     
     var matrix: [[CubeCell]] = []
-    let nRow = 10
-    let nCols = 15
+    let nRow = 9
+    let nCols = 10
 
            
     

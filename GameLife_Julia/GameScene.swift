@@ -15,7 +15,7 @@ public class GameScene: SCNScene {
     let rulesGame = RulesGame()
     let deadColor = UIColor.systemGray5
     let aliveColor = UIColor.systemRed
-    let offset: Int = 40
+    let offset: Int = 4
     var nodes: [SCNNode] = []
     
     override init(){
