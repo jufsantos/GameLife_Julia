@@ -11,11 +11,9 @@ import UIKit
 class Grid {
     
     var matrix: [[CubeCell]] = []
-    let nRow = 9
-    let nCols = 10
+    let nRow = 14
+    let nCols = 15
 
-           
-    
     init() {
        
         for i in 0...nRow-1{ // percorrendo todas as linhas
