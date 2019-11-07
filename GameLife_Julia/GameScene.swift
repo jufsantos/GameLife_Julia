@@ -14,9 +14,9 @@ public class GameScene: SCNScene, SCNSceneRendererDelegate {
     var grid = Grid()
     let rulesGame = RulesGame()
     let deadColor = UIColor.systemGray5
-    let aliveColor = UIColor.systemRed
+    let aliveColor = #colorLiteral(red: 0.8643897804, green: 0.1254901961, blue: 0.9921568627, alpha: 1)
 
-    let offset: Int = 4
+    let offset: Int = 5
     var nodes: [SCNNode] = []
     let boxGeometry = SCNBox(width: 0.8 , height: 0.8, length: 0.8, chamferRadius: 0.005)
     let cameraNode = SCNNode()
@@ -98,14 +98,14 @@ public class GameScene: SCNScene, SCNSceneRendererDelegate {
     func setupScene() {
         // create and add a light to the scene
         lightNode.light = SCNLight()
-        lightNode.light!.type = .omni
+        lightNode.light!.type = .IES
         lightNode.position = SCNVector3(x: 0, y: 10, z: 10)
         self.rootNode.addChildNode(lightNode)
 
         // create and add an ambient light to the scene
         ambientLightNode.light = SCNLight()
-        ambientLightNode.light!.type = .ambient
-        ambientLightNode.light!.color = UIColor.systemGray
+        ambientLightNode.light!.type = .omni
+        ambientLightNode.light!.color = UIColor.systemPink
         self.rootNode.addChildNode(ambientLightNode)
         
         // create and add a camera to the scene
